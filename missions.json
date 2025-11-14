@@ -1,0 +1,357 @@
+{
+  "START": {
+    "title": "The Argus-1 Launch",
+    "description": "Our new 'ARGUS-1' satellite is ready for launch. It contains sensitive, next-generation sensors. Intel suggests a rival nation is suspicious of its true purpose. How do we handle the public announcement?",
+    "options": [
+      {
+        "text": "Announce as 'Climate Research Satellite'. (Deception)",
+        "feedback": "Comms blackout initiated. Public designation 'Climate-Sat TX-2' is live. Public trusts the cover story, but foreign attachés are lodging formal complaints about the launch's lack of transparency.",
+        "consequences": {
+          "publicTrust": 5,
+          "diplomaticStability": -10,
+          "systemResilience": 5
+        },
+        "nextScenario": "MISSION_2"
+      },
+      {
+        "text": "Announce as 'Orbital Debris Monitor'. (Transparent Dual-Use)",
+        "feedback": "Press release sent. The public is uneasy about 'monitoring' technology. Allied partners have praised our transparency, but rivals will now actively track ARGUS-1's capabilities.",
+        "consequences": {
+          "publicTrust": -5,
+          "diplomaticStability": 10,
+          "systemResilience": -10
+        },
+        "nextScenario": "MISSION_2"
+      },
+      {
+        "text": "File as 'Classified Domestic Payload'. (Total Secrecy)",
+        "feedback": "We've filed the launch as a classified domestic asset. The public is extremely suspicious, and the UN is formally protesting the lack of disclosure. However, our rivals have no cover story to analyze. They are in the dark.",
+        "consequences": {
+          "publicTrust": -15,
+          "diplomaticStability": -15,
+          "systemResilience": 10
+        },
+        "nextScenario": "MISSION_2"
+      }
+    ]
+  },
+  "MISSION_2": {
+    "title": "Unidentified Object",
+    "description": "ARGUS-1 detects an unknown, small object on a close-pass trajectory. It's not on any known registry. It could be debris, or it could be a rival 'inspection' satellite. We have seconds to react.",
+    "options": [
+      {
+        "text": "Maneuver ARGUS-1 to a new orbit. (Caution)",
+        "feedback": "Maneuver complete. ARGUS-1 is safe. We've lost track of the object, but the immediate threat is gone. Budget allocated for trajectory correction fuel.",
+        "consequences": {
+          "systemResilience": 10,
+          "budget": -5
+        },
+        "nextScenario": "MISSION_3"
+      },
+      {
+        "text": "Hold position and 'ping' the object with active radar. (Data Gathering)",
+        "feedback": "Active ping sent. The object is non-responsive, but we've broadcast our exact radar signature. If it was a rival, they now have critical intel on our tracking systems.",
+        "consequences": {
+          "systemResilience": -10,
+          "diplomaticStability": -5,
+          "budget": -2
+        },
+        "nextScenario": "MISSION_3"
+      },
+      {
+        "text": "Hold position and do nothing. (Calculated Risk)",
+        "feedback": "We held our nerve. The object passed within 1km but did not deviate or interact. It was likely just debris. We saved fuel, but the risk was enormous.",
+        "consequences": {
+          "systemResilience": -5,
+          "publicTrust": 1
+        },
+        "nextScenario": "MISSION_3"
+      }
+    ]
+  },
+  "MISSION_3": {
+    "title": "The Anomaly",
+    "description": "A software bug sends ARGUS-1 into an uncontrolled tumble, visible to amateur astronomers. The media is asking if our 'Climate' satellite is broken and why it's behaving so erratically.",
+    "options": [
+      {
+        "text": "Issue a full public statement on the 'software anomaly' and our fix.",
+        "feedback": "The admission of a 'software anomaly' is playing well with the public. However, our rivals are highlighting this as a critical system flaw and a sign of incompetence.",
+        "consequences": {
+          "publicTrust": 15,
+          "systemResilience": -10,
+          "diplomaticStability": -5
+        },
+        "nextScenario": "MISSION_4"
+      },
+      {
+        "text": "Enforce a media blackout, citing 'National Security'. (Cover-up)",
+        "feedback": "Blackout is in effect. The public is furious and conspiracy theories are rampant. The technical details of the bug remain secure, but trust is plummeting.",
+        "consequences": {
+          "publicTrust": -20,
+          "systemResilience": 5,
+          "budget": -5
+        },
+        "nextScenario": "MISSION_4"
+      },
+      {
+        "text": "Leak intel blaming 'hostile cyber activity' from a rival.",
+        "feedback": "The leak worked. The public is rallying behind us against a 'common enemy.' Our rival is furious and is threatening to release their own damaging intel at the UN.",
+        "consequences": {
+          "publicTrust": 10,
+          "diplomaticStability": -20,
+          "systemResilience": -5
+        },
+        "nextScenario": "MISSION_4"
+      }
+    ]
+  },
+  "MISSION_4": {
+    "title": "Allied Tech Request",
+    "description": "An allied nation (a Cooperative Bloc) wants access to our new sensor imaging technology from ARGUS-1 for their 'climate research.' Intel believes they also want it to monitor their *own* regional rivals.",
+    "options": [
+      {
+        "text": "Share the technology. (Strengthen Alliance)",
+        "feedback": "Tech transfer complete. Our alliance is stronger than ever, and we've received payment. However, our sensor's unique, classified signature is now known to a third party.",
+        "consequences": {
+          "diplomaticStability": 20,
+          "systemResilience": -15,
+          "budget": 10
+        },
+        "nextScenario": "MISSION_5"
+      },
+      {
+        "text": "Politely decline, citing 'classification protocols'. (Protect Secrets)",
+        "feedback": "Our allies are offended, calling our partnership 'one-sided' and threatening to pull support at the UN. Our technological edge, however, remains secure.",
+        "consequences": {
+          "diplomaticStability": -15,
+          "systemResilience": 10
+        },
+        "nextScenario": "MISSION_5"
+      },
+      {
+        "text": "Share a 'degraded' version of the technology.",
+        "feedback": "We provided the 'export model' of our sensor tech. Our ally seems satisfied, but intel suggests their scientists are aware it's been hobbled, damaging our credibility.",
+        "consequences": {
+          "diplomaticStability": 5,
+          "systemResilience": -5,
+          "budget": 5,
+          "publicTrust": -5
+        },
+        "nextScenario": "MISSION_5"
+      }
+    ]
+  },
+  "MISSION_5": {
+    "title": "The 'Shadow'",
+    "description": "A known rival (Militarized State) has just launched a 'communications' satellite that is now 'shadowing' ARGUS-1, matching its orbit perfectly. It's a clear, aggressive intelligence-gathering move.",
+    "options": [
+      {
+        "text": "Protest through diplomatic channels.",
+        "feedback": "Protest lodged. They deny everything. The 'shadow' remains, and we look weak, but we have avoided escalating a tense situation.",
+        "consequences": {
+          "diplomaticStability": 5,
+          "systemResilience": -10
+        },
+        "nextScenario": "MISSION_6"
+      },
+      {
+        "text": "Authorize a 'dazzling' laser maneuver to 'accidentally' blind their optics.",
+        "feedback": "Maneuver authorized. Their satellite's optics are likely damaged. This is a major diplomatic escalation. The UN is calling an emergency session.",
+        "consequences": {
+          "diplomaticStability": -25,
+          "systemResilience": 15,
+          "publicTrust": -5
+        },
+        "nextScenario": "MISSION_6"
+      },
+      {
+        "text": "Authorize a deniable 'jamming' of its uplink.",
+        "feedback": "Jamming successful. Their sat is quiet. We've demonstrated a powerful EW capability, but they will certainly retaliate in the cyber domain. We've spent significant power resources.",
+        "consequences": {
+          "systemResilience": 10,
+          "diplomaticStability": -15,
+          "budget": -8
+        },
+        "nextScenario": "MISSION_6"
+      }
+    ]
+  },
+  "MISSION_6": {
+    "title": "Budget Committee Threat",
+    "description": "A budget committee is threatening to cut your funding by 30% unless you can publicly justify the program's immense cost. They want a 'win' to show their constituents.",
+    "options": [
+      {
+        "text": "Declassify a minor sensor capability to 'show progress'.",
+        "feedback": "The declassification was a PR success. The committee restored our funding. Intel is unhappy, but the capability revealed was minor.",
+        "consequences": {
+          "budget": 20,
+          "publicTrust": 10,
+          "systemResilience": -10
+        },
+        "nextScenario": "MISSION_7"
+      },
+      {
+        "text": "Argue 'National Security' in a closed hearing and refuse to declassify.",
+        "feedback": "The committee was unconvinced. They've cut our budget by 20%, and the public is siding with them, calling us 'secretive and wasteful'. All capabilities remain classified.",
+        "consequences": {
+          "budget": -20,
+          "publicTrust": -10,
+          "systemResilience": 5
+        },
+        "nextScenario": "MISSION_7"
+      },
+      {
+        "text": "Anonymously leak intelligence on a rival's program to the committee.",
+        "feedback": "The leak worked perfectly. The committee is in a panic and has granted 'emergency funding.' The public is scared, and our rival knows the leak came from us, causing a diplomatic crisis.",
+        "consequences": {
+          "budget": 30,
+          "publicTrust": -5,
+          "diplomaticStability": -20
+        },
+        "nextScenario": "MISSION_7"
+      }
+    ]
+  },
+  "MISSION_7": {
+    "title": "Debris Collision",
+    "description": "A piece of our own defunct, un-tracked satellite (from 30 years ago) has struck a commercial communications satellite. Parts of the world are without internet. They are blaming us.",
+    "options": [
+      {
+        "text": "Take immediate, full responsibility and offer compensation.",
+        "feedback": "Taking responsibility was painful, but it's calming the markets and the public. The compensation package will be costly.",
+        "consequences": {
+          "publicTrust": 15,
+          "diplomaticStability": 5,
+          "budget": -20
+        },
+        "nextScenario": "MISSION_8"
+      },
+      {
+        "text": "Blame an 'unforeseeable, chaotic orbital event'. (Plausible Deniability)",
+        "feedback": "The denial isn't holding up. Tracking data is irrefutable. The international community is blaming us anyway, and the public is accusing us of a cover-up.",
+        "consequences": {
+          "publicTrust": -20,
+          "diplomaticStability": -10
+        },
+        "nextScenario": "MISSION_8"
+      },
+      {
+        "text": "Anonymously blame a 'non-state actor' to create confusion.",
+        "feedback": "We've muddied the waters. The media is now chasing a new lead, but our allies are privately furious we're avoiding responsibility, and our public is skeptical.",
+        "consequences": {
+          "publicTrust": -10,
+          "diplomaticStability": -15,
+          "budget": -5
+        },
+        "nextScenario": "MISSION_8"
+      }
+    ]
+  },
+  "MISSION_8": {
+    "title": "Ground Station Breach",
+    "description": "A hacker group claims to have breached a ground station. They're demanding a ransom and have released a small, non-critical data packet (satellite telemetry) as proof. They threaten to release the 'master keys' next.",
+    "options": [
+      {
+        "text": "Refuse to negotiate. Take the station offline and patch the exploit.",
+        "feedback": "We've patched the vulnerability, but the hackers have retaliated by dumping all the data they stole. It's a major public scandal, revealing our satellite's exact orbital path.",
+        "consequences": {
+          "budget": -5,
+          "systemResilience": 10,
+          "publicTrust": -15
+        },
+        "nextScenario": "MISSION_9"
+      },
+      {
+        "text": "Pay the ransom quietly through a shell corporation.",
+        "feedback": "Ransom paid. The data stream has stopped. We've contained the leak, but we've set a dangerous precedent, revealed a vulnerability, and are now being blackmailed for more.",
+        "consequences": {
+          "budget": -15,
+          "systemResilience": -10,
+          "publicTrust": -5
+        },
+        "nextScenario": "MISSION_9"
+      },
+      {
+        "text": "Authorize a counter-hack to destroy their servers. (Aggressive)",
+        "feedback": "Our cyber-warfare team has successfully 'bricked' their servers. The data is gone... but we've just engaged in a major offensive cyber operation, and the international community is tracing the attack back to us.",
+        "consequences": {
+          "budget": -10,
+          "systemResilience": 10,
+          "diplomaticStability": -20
+        },
+        "nextScenario": "MISSION_9"
+      }
+    ]
+  },
+  "MISSION_9": {
+    "title": "Rival ASAT Test",
+    "description": "A rival nation (Militarized State) just conducted a successful anti-satellite (ASAT) missile test, creating a massive debris field. Our assets are at high risk. They claim it was a 'failed launch'.",
+    "options": [
+      {
+        "text": "Strongly condemn the test at the UN and present our tracking data.",
+        "feedback": "Our condemnation has rallied our allies and isolated our rival. The debris field, however, is now a permanent threat to all orbital assets, including ours. We've spent political, not practical, capital.",
+        "consequences": {
+          "diplomaticStability": 10,
+          "systemResilience": -15
+        },
+        "nextScenario": "MISSION_10"
+      },
+      {
+        "text": "Immediately fund and announce our own 'defensive' ASAT program.",
+        "feedback": "The announcement has triggered an orbital arms race. Allies are terrified. Rivals are accelerating their own programs. The budget hit is massive, but we are now a 'peer' threat.",
+        "consequences": {
+          "diplomaticStability": -30,
+          "systemResilience": 20,
+          "budget": -25
+        },
+        "nextScenario": "MISSION_10"
+      },
+      {
+        "text": "Propose an emergency international treaty banning all ASAT tests.",
+        "feedback": "We've taken the diplomatic high ground. Public trust is soaring. Most allies agree, but the rival state has vetoed the proposal, calling us 'hypocritical'. The threat remains, and we look naive.",
+        "consequences": {
+          "diplomaticStability": 15,
+          "systemResilience": -15,
+          "publicTrust": 10
+        },
+        "nextScenario": "MISSION_10"
+      }
+    ]
+  },
+  "MISSION_10": {
+    "title": "Hostile Jamming",
+    "description": "Final Mission. A rival's 'research' satellite is broadcasting a powerful, targeted signal that is actively jamming ARGUS-1's communication uplink. This is an undeniable act of aggression.",
+    "options": [
+      {
+        "text": "Share jamming data with allies; request a joint, public condemnation.",
+        "feedback": "Our allies are analyzing the data. A joint resolution is being drafted. It's the 'right' way, but ARGUS-1 is effectively offline for the foreseeable future, a sitting duck.",
+        "consequences": {
+          "diplomaticStability": 15,
+          "publicTrust": 5,
+          "systemResilience": -15
+        },
+        "nextScenario": "END"
+      },
+      {
+        "text": "Activate ARGUS-1's classified 'counter-measure' system. (Kinetic)",
+        "feedback": "Counter-measure engaged. The rival satellite is dead. We've revealed our final card, proving ARGUS-1 was a weapon all along. The public is shocked. The diplomatic fallout is catastrophic. But the threat is neutralized.",
+        "consequences": {
+          "diplomaticStability": -30,
+          "systemResilience": 25,
+          "publicTrust": -20
+        },
+        "nextScenario": "END"
+      },
+      {
+        "text": "Reposition ARGUS-1 to a new, less optimal orbit. (Evasion)",
+        "feedback": "We've moved ARGUS-1 to a 'quiet' orbit, evading the jamming. The satellite is safe, but it can no longer perform its primary mission. We've effectively conceded the field to our rival.",
+        "consequences": {
+          "diplomaticStability": -5,
+          "systemResilience": -20,
+          "publicTrust": -5
+        },
+        "nextScenario": "END"
+      }
+    ]
+  }
+}

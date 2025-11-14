@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - C.M.S.</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+<style>
+    /* Custom style for the DOI links */
+    .doi-link {
+        color: #60a5fa; /* text-blue-400 */
+        font-size: 0.875rem; /* text-sm */
+        margin-left: 0.25rem;
+        text-decoration: none;
+        word-break: break-all;
+        display: block; /* Ensures it sits on its own line under the title */
+        margin-top: 0.25rem; /* Adds a little space */
+    }
+    .doi-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+</head>
+<body class="h-full bg-gray-950 text-gray-300">
+    <!-- This structure now perfectly matches dashboard.html -->
+    <div class="flex h-full w-full">
+
+        <!-- ===== Left Sidebar Navigation (Same as dashboard) ===== -->
+        <aside class="h-full w-64 fixed bg-gray-900 border-r border-blue-900/30 flex flex-col z-20">
+            <a href="index.html" class="block px-6 py-5 border-b border-blue-900/30 transition-colors hover:bg-gray-800">
+                <h1 class="text-xl font-bold text-white tracking-wider">C.M.S.</h1>
+                <span class="text-xs text-blue-300">CLASSIFIED MISSION SIMULATOR</span>
+            </a>
+            
+            <!-- Nav Links (Active state is now on 'About') -->
+            <ul class="flex-grow px-4 py-4 space-y-2">
+                <li>
+                    <a href="dashboard.html" class="flex items-center px-3 py-2 text-gray-400 hover:bg-gray-800 hover:text-white rounded-lg transition-colors">
+                        <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12v-1.5a2.25 2.25 0 00-2.25-2.25H6.75V3.75c0-.621-.504-1.125-1.125-1.125H3.75zM12.75 16.5v-4.125c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V16.5" /></svg>
+                        <span>Missions</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="flex items-center px-3 py-2 bg-blue-900/50 text-white rounded-lg">
+                        <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                        <span>About</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- ===== Main Content Area (Same as dashboard) ===== -->
+        <!-- ml-64 for sidebar, mr-80 for metrics panel, p-8 for padding -->
+        <main class="ml-64 mr-80 w-full p-8 overflow-y-auto">
+            
+            <!-- Top Bar (Same as dashboard, but with 'About' title) -->
+            <header class="widget p-4 mb-8">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-xl font-semibold text-white">Project Methodology</h2>
+                        <p class="text-md text-gray-400">An overview of the simulation's academic framework.</p>
+                    </div>
+                    <div class="text-right">
+                         <h3 class="text-xs uppercase text-gray-500 font-semibold tracking-wider">System Status</h3>
+                        <div class="flex items-center justify-end mt-2">
+                            <div class="status-light w-3 h-3 bg-gray-500 rounded-full mr-2"></div>
+                            <span class="text-gray-500 font-medium">OFFLINE</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- ===== Main Content (The Academic Text) ===== -->
+            <div class="max-w-4xl mx-auto">
+                <div class="widget p-8">
+                    <div class="academic-content">
+                        <h1 class="text-3xl font-bold text-blue-400 mb-4">About This Simulation</h1>
+                        <p><strong>Classified Mission Simulator</strong> is an interactive educational tool designed for a university project in course SPS261 - Government Secrecy and Intelligence Studies. It translates complex strategic trade-offs into an interactive framework, enabling users to experience the decision-making pressures that define contemporary space governance.</p>
+
+                        <h2 class="text-2xl font-semibold text-white border-b border-gray-700 pb-2 mt-10 mb-6">Grounded in Academic Research</h2>
+                        <p>This simulation is not an arbitrary game; its design is directly derived from the foundational academic papers provided for this university project. The ten-mission structure and four-metric evaluation system operationalize these theories into a playable simulation, translating academic models into experiential learning.</p>
+                        <p>The core logic of the simulation is built by synthesizing two key works:</p>
+                        <ul class="list-none space-y-4 mt-4 pl-4" style="list-style-type: none;">
+                            <li class="relative pl-6">
+                                <span class="absolute left-0 top-1.5 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                <div>
+                                    <strong><em>Vaynman and Volpe (2023)</em>, "Dual Use Deception: How Technology Shapes Cooperation in International Relations"</strong>
+                                    <span class="text-gray-500 text-xs uppercase">DOI:</span>
+                                    <a href="https://doi.org/10.1017/S0020818323000140" target="_blank" rel="noopener noreferrer" class="doi-link">
+                                        https://doi.org/10.1017/S0020818323000140
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="relative pl-6">
+                                <span class="absolute left-0 top-1.5 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                <div>
+                                    <strong>Zagare (2019), "Game Theory, Diplomatic History and Security Studies"</strong>
+                                    <span class="text-gray-500 text-xs uppercase">DOI:</span>
+                                    <a href="https://doi.org/10.1093/oso/9780198831587.001.0001" target="_blank" rel="noopener noreferrer" class="doi-link">
+                                        https://doi.org/10.1093/oso/9780198831587.001.0001
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="mt-4">This page details <em>how</em> those concepts were used to build the simulation's logic.</p>
+
+                        <h2 class="text-2xl font-semibold text-white border-b border-gray-700 pb-2 mt-10 mb-6">Core Concepts & Methodology</h2>
+                        <p>The simulation is built on a framework of competing strategic priorities. Each decision forces the user to weigh the costs and benefits associated with secrecy, security, diplomacy, and public perception.</p>
+
+                        <h3 class="text-xl font-semibold text-blue-300 mt-6 mb-3">1. The Vaynman & Volpe "Dead Zone"</h3>
+                        <p><em>Vaynman & Volpe (2023)</em> argue that cooperation on technology is determined by two factors: <strong>distinguishability</strong> (can you tell civilian and military uses apart?) and <strong>integration</strong> (is the tech embedded in both sectors?).</p>
+                        <p>This simulation is set in what they term the "dead zone" of cooperation: assets that are both <strong>indistinguishable</strong> and <strong>highly integrated</strong>. Space systems, like AI and cyber, fit this perfectly. A satellite's sensor array can be used for climate science (civilian) or for targeting (military), and the ground stations are integrated with both civilian and military networks. This is the core problem: deception is easy, and verification is nearly impossible without risking espionage.</p>
+
+                        <h3 class="text-xl font-semibold text-blue-300 mt-6 mb-3">2. Zagare's Game-Theoretic Modeling</h3>
+                        <p><em>Zagare (2019)</em> argues that game theory provides a rigorous way to model historical crises. This simulation adopts that method. Each of the 10 missions is a "game" in the formal sense—a strategic interaction where the player must choose a move without knowing the opponent's full response. The player's decisions are moves in an <strong>Asymmetric Escalation Game</strong> or a <strong>Game of Chicken</strong>, much like those Zagare uses to analyze the Cuban Missile Crisis or the "Long Peace."</p>
+
+                        <h3 class="text-xl font-semibold text-blue-300 mt-6 mb-3">3. The Four Metrics (The "Payoff" Structure)</h3>
+                        <p>In Zagare's game-theoretic models, each choice has a "payoff." In this simulation, the payoffs are quantified by the four key metrics. Every decision is a trade-off, and the "payoff" is the change in these four variables, which represent the competing priorities of a national leader:</p>
+                        <ul class="list-none space-y-4 mt-4 pl-4" style="list-style-type: none;">
+                            <li class="relative pl-6">
+                                <span class="absolute left-0 top-1.5 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                <strong>Public Trust:</strong> Represents the public's and media's confidence in your program. High trust is essential for securing funding and maintaining political support, but it is highly sensitive to perceived deception or failure.
+                            </li>
+                            <li class="relative pl-6">
+                                <span class="absolute left-0 top-1.5 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                <strong>Budget:</strong> The financial resources available to your program. It is depleted by costly maneuvers and compensation, and can be increased through political victories or allied contributions.
+                            </li>
+                            <li class="relative pl-6">
+                                <span class="absolute left-0 top-1.5 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                <strong>System Resilience:</strong> The technical and operational integrity of your space assets. This is increased by protecting secrets and neutralizing threats, but decreased by sharing technology, suffering breaches, or revealing capabilities.
+                            </li>
+                            <li class="relative pl-6">
+                                <span class="absolute left-0 top-1.5 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                <strong>Diplomatic Stability:</strong> Represents the state of relations with other space-faring nations, including allies and rivals. It is improved through transparency and cooperation, but damaged by unilateral actions, deception, and aggressive posturing.
+                            </li>
+                        </ul>
+
+                        <h2 class="text-2xl font-semibold text-white border-b border-gray-700 pb-2 mt-12 mb-6">Mission-by-Mission Breakdown</h2>
+                        <p>Each scenario in the simulation is a practical case study designed to test one or more of the core academic concepts. Here is how each mission connects the theory to the required decisions:</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 1: The Argus-1 Launch</h4>
+                        <p><strong>Concepts Applied:</strong> Vaynman & Volpe's Framework (Distinguishability).</p>
+                        <p>This mission is a direct test of "distinguishability." The "Climate Research" cover story is an attempt to make a dual-use asset seem civilian (high distinguishability). The "Debris Monitor" is more honest but admits a military-adjacent function. The choice immediately impacts <strong>Diplomatic Stability</strong>, as rivals must guess your true intent in the "dead zone."</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 2: Unidentified Object</h4>
+                        <p><strong>Concepts Applied:</strong> Zagare's Game Theory (Risk & Caution).</p>
+                        <p>A simple game of risk. Maneuvering (Caution) has a small, certain cost (<strong>Budget</strong>) but guarantees asset safety (<strong>System Resilience</strong>). "Pinging" the object is a gamble: it may reveal information, but as Vaynman & Volpe's work implies, it also risks revealing your capabilities (lowering <strong>System Resilience</strong>) by exposing your "digital signature."</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 3: The Anomaly</h4>
+                        <p><strong>Concepts Applied:</strong> Vaynman & Volpe (Integration).</p>
+                        <p>This mission explores the "integration" problem. The flaw is not just a technical problem; it's a public relations one because the satellite is integrated with public life. Admitting the flaw (high <strong>Public Trust</strong>) risks exposing a vulnerability (low <strong>System Resilience</strong>). A media blackout is an attempt to hide the flaw, but it fails, proving that trust is a critical component of policy in the "dead zone."</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 4: Allied Tech Request</h4>
+                        <p><strong>Concepts Applied:</strong> Vaynman & Volpe (Distinguishability & Integration).</p>
+                        <p>A classic "disclosure constraint." Sharing technology improves <strong>Diplomatic Stability</strong> and <strong>Budget</strong>, but it is an irreversible act of proliferation. Because the tech is indistinguishable and integrated, you have permanently reduced your <strong>System Resilience</strong> by giving away a core secret. This is the high-risk, high-reward nature of cooperation in the "dead zone."</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 5: The 'Shadow'</h4>
+                        <p><strong>Concepts Applied:</strong> Zagare's Asymmetric Escalation Game.</p>
+                        <p>This is a "game of chicken," as analyzed by Zagare. A rival is escalating. Your choices are clear "moves": 1) Protest (de-escalate, lose face), 2) Deniable EW (match escalation, high risk), 3) "Dazzle" (aggressive escalation, high reward). The player must decide if protecting <strong>System Resilience</strong> is worth the severe <strong>Diplomatic Stability</strong> cost of "swerving" last.</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 6: Budget Committee Threat</h4>
+                        <p><strong>Concepts Applied:</strong> Vaynman & Volpe (Distinguishability).</p>
+                        <p>This mission links <strong>Public Trust</strong> directly to <strong>Budget</strong>. To justify funding, you must choose between declassifying a minor capability (making it "distinguishable" as a public good) or holding firm. The PR win boosts <strong>Budget</strong> but, per Vaynman & Volpe, any disclosure (even minor) lowers <strong>System Resilience</strong> by revealing a piece of the puzzle.</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 7: Debris Collision</h4>
+                        <p><strong>Concepts Applied:</strong> Zagare's Game Theory (Payoff Structure).</p>
+                        <p>This models a scenario with a "dominant
+                        losing strategy." Attempting plausible deniability is designed to fail, demonstrating that in a game with perfect information (the public will find out), a failed cover-up has a worse payoff (catastrophic <strong>Public Trust</strong> loss) than simply taking the initial, costly hit to <strong>Budget</strong>.</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 8: Ground Station Breach</h4>
+                        <p><strong>Concepts Applied:</strong> Vaynman & Volpe (Integration).</p>
+                        <p>This is the "integration" problem in action. The civilian and military networks are one. You must choose what to sacrifice: <strong>System Resilience</strong> (by not patching the vulnerability) or <strong>Public Trust</strong> (by patching it, but letting the data leak). It's a "no-win" scenario created by high integration, just as the paper predicts.</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 9: Rival ASAT Test</h4>
+                        <p><strong>Concepts Applied:</strong> Zagare's Perfect Deterrence Theory.</p>
+                        <p>This models a major "red line" event that fundamentally changes the game's state. The rival's test has broken deterrence. Condemning the act is a diplomatic move that fails to solve the physical threat (<strong>System Resilience</strong> drops). Announcing your own ASAT program is a classic move in deterrence theory—re-establishing equilibrium through mutual threat, but at a catastrophic cost to <b>Diplomatic Stability</b> and <strong>Budget</strong>.</p>
+
+                        <h4 class="text-lg font-semibold text-blue-300 mt-6 mb-2">Mission 10: Hostile Jamming</h4>
+                        <p><strong>Concepts Applied:</strong> Vaynman & Volpe's "Dead Zone" & Zagare's Escalation.</p>
+                        <p>The final "game." Faced with an act of war, the player must make their last move. The diplomatic option (sharing data) follows international norms but is a "loss." The military option ("activate counter-measure") proves Vaynman & Volpe's theory: the satellite was always an indistinguishable weapon. This act wins the immediate battle (high <strong>System Resilience</strong>) but proves the worst fears of rivals and the public, causing a total collapse in <strong>Diplomatic Stability</strong> and <strong>Public Trust</strong>—the exact "disaster" outcome that the "dead zone" framework predicts.</p>
+                        
+                        <h2 class="text-2xl font-semibold text-white border-b border-gray-700 pb-2 mt-12 mb-6">Design Philosophy</h2>
+                        <p>The interface and feedback system of the Classified Mission Simulator were intentionally designed to reflect the aesthetics of bureaucratic control centers—minimalist, data-driven, and emotionally neutral. This design choice reinforces the project’s thematic intent: decisions made under secrecy appear rational and procedural, even when their long-term outcomes are destabilizing. The player’s experience of tension between clarity and opacity mirrors the institutional paradox at the core of modern state secrecy.</p>
+
+                        <h2 class="text-2xl font-semibold text-white border-b border-gray-700 pb-2 mt-12 mb-6">Project Purpose</h2>
+                        <p>The objective is not to "win" in a traditional sense, but to force the user to experience the consequences of their choices. The simulation uses Zagare's game-theoretic method to model the real-world policy dilemmas created by the "indistinguishable and integrated" technologies described by Vaynman & Volpe. By the end, the player experiences how a series of small, rational decisions can cascade into systemic instability—or how careful, balanced policy can navigate the "dead zone" of modern space governance.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ===== Right Profile Panel (Cozy Version) ===== -->
+<aside class="profile-panel h-full w-80 fixed right-0 p-6 z-10 overflow-y-auto">
+
+  <div class="flex flex-col items-center text-center mb-6">
+    <a href="https://x.com/ShlokThakkar_CG" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="profile-photo-link">
+    <img src="yourphoto.jpg" alt="Shlok Thakkar" class="profile-photo">
+</a>
+
+    <h2 class="profile-name">Shlok Thakkar</h2>
+    <p class="profile-sub">
+  <a href="mailto:shlok.t1@ahduni.edu.in" class="email-link">shlok.t1@ahduni.edu.in</a>
+</p>
+
+  </div>
+
+  <p>
+    I built this simulator during my course SPS261 Government Secrecy and Intelligence Studies — a class about how power and information shape what the public is allowed to see. 
+  </p>
+
+  <h4>Why I Made This</h4>
+  <p>
+  When I watched Johnny Harris’s <a href="https://youtu.be/JZqa2wQdORo?si=xublioK0jSoxsrQL" target="_blank" rel="noopener noreferrer" class="video-link"><em>Space Wars</em></a> video, something clicked. The video wasn’t just about satellites — it was about how countries hide their intentions behind perfect public images. That tension between what’s visible and what’s true reminded me of our course discussions on secrecy and intelligence. I wanted to build something that lets people sit with that feeling, not just analyze it.
+  </p>
+
+
+
+  <h4>What I Learned</h4>
+  <p>
+    Building this showed me secrecy isn’t only about hiding — it’s about balancing risks, timing, and trust. Sometimes it protects. Sometimes it isolates. Most of the time, it’s both.
+  </p>
+
+  <div class="profile-footer">
+    made with curiosity and lots of AI :D
+  </div>
+</aside>
+
+
+
+
+</body>
+</html>
+

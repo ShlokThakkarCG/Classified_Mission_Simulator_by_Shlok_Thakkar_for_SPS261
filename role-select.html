@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Role - C.M.S.</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="h-full bg-gray-950 text-gray-300 flex items-center justify-center py-12">
+
+    <div class="max-w-6xl mx-auto text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">Welcome, Acting Mission Commander</h1>
+        <p class="text-xl text-gray-400 mb-12">Your choice determines your starting resources and diplomatic position.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+            <!-- Role Card 1: Tech Giant -->
+            <div class="role-card" onclick="selectRole('Tech Giant', { trust: 70, budget: 80, resilience: 60, diplomacy: 50 })">
+                <h2 class="text-2xl font-bold text-white">Tech Giant</h2>
+                <p class="text-gray-400 mt-2">High budget and resilience, but moderate public trust. Prioritizes innovation.</p>
+                <ul class="text-left mt-4 space-y-1">
+                    <li class="stat-high">High Budget</li>
+                    <li class="stat-high">High Resilience</li>
+                    <li class="stat-mid">Mid Trust</li>
+                    <li class="stat-low">Low Diplomacy</li>
+                </ul>
+            </div>
+
+            <!-- Role Card 2: Emerging Power -->
+            <div class="role-card" onclick="selectRole('Emerging Power', { trust: 50, budget: 60, resilience: 50, diplomacy: 70 })">
+                <h2 class="text-2xl font-bold text-white">Emerging Power</h2>
+                <p class="text-gray-400 mt-2">Strong diplomatic ties and high trust, but a limited budget and average resilience.</p>
+                <ul class="text-left mt-4 space-y-1">
+                    <li class="stat-high">High Diplomacy</li>
+                    <li class="stat-mid">Mid Trust</li>
+                    <li class="stat-mid">Mid Resilience</li>
+                    <li class="stat-low">Low Budget</li>
+                </ul>
+            </div>
+
+            <!-- Role Card 3: Militarized State -->
+            <div class="role-card" onclick="selectRole('Militarized State', { trust: 30, budget: 100, resilience: 90, diplomacy: 20 })">
+                <h2 class="text-2xl font-bold text-white">Militarized State</h2>
+                <p class="text-gray-400 mt-2">Unmatched budget and resilience. Extremely low public trust and diplomatic isolation.</p>
+                <ul class="text-left mt-4 space-y-1">
+                    <li class="stat-high">Max Budget</li>
+                    <li class="stat-high">Max Resilience</li>
+                    <li class="stat-low">Low Diplomacy</li>
+                    <li class="stat-low">Low Trust</li>
+                </ul>
+            </div>
+
+            <!-- Role Card 4: Cooperative Bloc -->
+            <div class="role-card" onclick="selectRole('Cooperative Bloc', { trust: 80, budget: 70, resilience: 40, diplomacy: 90 })">
+                <h2 class="text-2xl font-bold text-white">Cooperative Bloc</h2>
+                <p class="text-gray-400 mt-2">Excellent diplomacy and public trust. Relies on allies, resulting in lower system resilience.</p>
+                <ul class="text-left mt-4 space-y-1">
+                    <li class="stat-high">Max Diplomacy</li>
+                    <li class="stat-high">High Trust</li>
+                    <li class="stat-mid">Mid Budget</li>
+                    <li class="stat-low">Low Resilience</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectRole(roleName, startingStats) {
+            const gameState = {
+                role: roleName,
+                publicTrust: startingStats.trust,
+                budget: startingStats.budget,
+                systemResilience: startingStats.resilience,
+                diplomaticStability: startingStats.diplomacy,
+                missionNumber: 1 // Start at mission 1
+            };
+
+            // Save the initial state to localStorage
+            localStorage.setItem('cmsGameState', JSON.stringify(gameState));
+
+            // Redirect to the dashboard
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

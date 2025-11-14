@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Debrief - C.M.S.</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Load Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <!-- Load Chart.js datalabels plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-950 text-gray-300 flex justify-center py-12 md:py-16">
+
+    <main class="widget max-w-3xl mx-auto p-6 md:p-8 rounded-xl shadow-lg" 
+          style="backdrop-filter: blur(12px); background: rgba(17,24,39,0.45);">
+
+        <div class="academic-content text-center">
+            <h1 id="end-title" class="text-3xl md:text-4xl font-semibold text-white tracking-tight">
+                Simulation Complete
+            </h1>
+            
+            <!-- Final Metrics Bar Graph -->
+            <div class="mt-10 h-64 md:h-72">
+                <canvas id="final-metrics-chart"></canvas>
+            </div>
+
+            <!-- Outcome Summary -->
+            <div id="outcome-text-box" class="text-left mt-10 p-5 bg-gray-900/40 border border-gray-700/60 rounded-lg">
+                <h2 id="outcome-title-text" class="text-2xl font-semibold text-white mb-3">...</h2>
+                <p id="outcome-summary-text" class="text-base md:text-lg text-gray-300 leading-relaxed">...</p>
+            </div>
+
+            <div class="end-btn-row">
+                <a href="#" id="restart-link" class="glass-btn">
+                Restart Simulation
+                </a>
+
+                <a href="about.html" class="glass-btn">
+                View Methodology
+                </a>
+            </div>
+
+
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const currentPath = window.location.pathname;
+            const basePath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+            const restartUrl = basePath + '/index.html'; 
+
+            const restartLink = document.getElementById('restart-link');
+            restartLink.href = restartUrl;
+            restartLink.onclick = (e) => {
+                e.preventDefault();
+                localStorage.removeItem('cmsGameState');
+                localStorage.removeItem('cmsFinalState');
+                localStorage.removeItem('cmsSelectedRole');
+                localStorage.removeItem('cmsCurrentScenario');
+                window.location.href = restartUrl;
+            };
+
+            const finalState = JSON.parse(localStorage.getItem('cmsFinalState'));
+            if (!finalState) {
+                window.location.href = restartUrl;
+                return;
+            }
+
+            const { publicTrust, systemResilience, diplomaticStability, budget } = finalState;
+
+            const titleEl = document.getElementById('end-title');
+            const outcomeTitleEl = document.getElementById('outcome-title-text');
+            const outcomeSummaryEl = document.getElementById('outcome-summary-text');
+
+            // New balanced outcome logic
+            const avgScore = (publicTrust + systemResilience + diplomaticStability + Math.min(100, budget)) / 4;
+            
+            if (avgScore >= 70) {
+                titleEl.textContent = 'Outcome: Balanced Success';
+                titleEl.classList.add('text-green-400');
+                outcomeTitleEl.textContent = 'Balanced Success';
+                outcomeSummaryEl.textContent = 
+                    "You maintained a stable balance between secrecy and transparency. Public confidence, diplomacy, and system health remained strong enough to ensure long-term resilience. This outcome reflects strategic consistency and effective crisis handling.";
+            
+            } else if (avgScore >= 40) {
+                titleEl.textContent = 'Outcome: Instability Warning';
+                titleEl.classList.add('text-yellow-400');
+                outcomeTitleEl.textContent = 'Instability Warning';
+                outcomeSummaryEl.textContent = 
+                    "The system is showing signs of stress. Some decisions improved short-term security but damaged trust or diplomacy. This mixed outcome mirrors real-world challenges where secrecy strategies create long-term uncertainty.";
+            
+            } else {
+                titleEl.textContent = 'Outcome: Complete Disaster';
+                titleEl.classList.add('text-red-400');
+                outcomeTitleEl.textContent = 'Complete Disaster';
+                outcomeSummaryEl.textContent =
+                    "The simulation ends in systemic failure. Critical variables collapsed due to inconsistent crisis responses, excessive secrecy, or escalatory actions. This reflects historical cases where secrecy eroded stability and credibility.";
+            }
+
+            // Chart.js + Datalabels
+            Chart.register(ChartDataLabels);
+
+            const metricsData = [
+                { label: 'Public Trust', value: publicTrust },
+                { label: 'System Resilience', value: systemResilience },
+                { label: 'Diplomatic Stability', value: diplomaticStability },
+                { label: 'Budget', value: budget }
+            ];
+
+            const getColor = (value) => {
+                if (value >= 70) return { bg: 'rgba(74,222,128,0.6)', border: 'rgba(74,222,128,1)' };
+                if (value >= 40) return { bg: 'rgba(250,204,21,0.6)', border: 'rgba(250,204,21,1)' };
+                return { bg: 'rgba(239,68,68,0.6)', border: 'rgba(239,68,68,1)' };
+            };
+
+            const budgetColor = { 
+                bg: 'rgba(34,211,238,0.6)', 
+                border: 'rgba(34,211,238,1)' 
+            };
+
+            const ctx = document.getElementById('final-metrics-chart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: metricsData.map(d => d.label),
+                    datasets: [{
+                        label: 'Final Metrics',
+                        data: metricsData.map(d => d.value),
+                        backgroundColor: [
+                            getColor(publicTrust).bg,
+                            getColor(systemResilience).bg,
+                            getColor(diplomaticStability).bg,
+                            budgetColor.bg
+                        ],
+                        borderColor: [
+                            getColor(publicTrust).border,
+                            getColor(systemResilience).border,
+                            getColor(diplomaticStability).border,
+                            budgetColor.border
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: { duration: 1000, easing: 'easeInOutQuad' },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: Math.max(100, budget),
+                            ticks: { color: '#9ca3af' },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#d1d5db', font: { size: 13 } },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            color: '#e5e7eb',
+                            font: { size: 14, weight: 'bold', family: 'Roboto Mono' },
+                            formatter: (value, context) => {
+                                return context.dataIndex === 3 ? `${value}B` : `${value}%`;
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
