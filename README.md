@@ -20,15 +20,15 @@ Grounded in foundational academic research on dual-use technology and game theor
 
 Start: The user begins at index.html and clicks "Begin Mission."
 
-![Landing Page](https://shlokthakkarcg.github.io/Classified_Mission_Simulator_by_Shlok_Thakkar_for_SPS261/index.html)
+[Landing Page](https://shlokthakkarcg.github.io/Classified_Mission_Simulator_by_Shlok_Thakkar_for_SPS261/index.html)
 
 Role Selection: On role-select.html, the user chooses one of four mandates (e.g., "Tech Giant," "Militarized State"), which sets their starting metrics.
 
-![Role Selection](https://shlokthakkarcg.github.io/Classified_Mission_Simulator_by_Shlok_Thakkar_for_SPS261/role-select.html)
+[Role Selection](https://shlokthakkarcg.github.io/Classified_Mission_Simulator_by_Shlok_Thakkar_for_SPS261/role-select.html)
 
 Dashboard: The user lands on dashboard.html. app.js loads their state and fetches the first mission from missions.json.
 
-![Main Dashboard](https://shlokthakkarcg.github.io/Classified_Mission_Simulator_by_Shlok_Thakkar_for_SPS261/dashboard.html)
+[Main Dashboard](https://shlokthakkarcg.github.io/Classified_Mission_Simulator_by_Shlok_Thakkar_for_SPS261/dashboard.html)
 
 Mission Loop:
 
@@ -47,7 +47,7 @@ Game End: After the 10th mission, app.js saves the final state and redirects the
 Final Debrief: end.html reads the final state, calculates an average score, and displays one of three text-based outcomes (Balanced Success, Instability Warning, or Complete Disaster). It also renders the final, animated Chart.js graph summarizing their performance.
 
 Screenshot Placeholder: Add a screenshot of the end.html screen with the chart.
-![End Screen](https://shlokthakkarcg.github.io/Classified_Mission_Simulator_by_Shlok_Thakkar_for_SPS261/end.html)
+[End Screen](https://shlokthakkarcg.github.io/Classified_Mission_Simulator_by_Shlok_Thakkar_for_SPS261/end.html)
 
 Restart: The user can click "Restart Simulation," which clears localStorage and sends them back to index.html.
 
